@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Générateur de code-barres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Générateur de code-barres</h1>
+
+  <form method="post" action="qrcode">
+    <label>Code :
+      <input type="text" name="code" required>
+    </label><br>
+    <label>Libellé :
+      <input type="text" name="libelle" required>
+    </label><br>
+    <label>Type :
+      <select name="type">
+        <option value="datamatrix" selected>DataMatrix</option>
+      </select>
+    </label><br><br>
+    <button type="submit">Générer</button>
+  </form>
+
+  <p>Test GET servlet : <a href="qrcode">/qrcode</a></p>
+</body>
+</html>
