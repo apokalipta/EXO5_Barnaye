@@ -4,25 +4,102 @@
   <meta charset="utf-8">
   <title>Générateur de code-barres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --radius: 10px;
+      --shadow: 0 4px 16px rgba(0,0,0,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 16px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      color: var(--primary);
+      letter-spacing: 0.3px;
+    }
+    form {
+      background: var(--card-bg);
+      padding: 28px 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      width: 100%;
+      max-width: 420px;
+    }
+    label {
+      display: block;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+    input[type="text"],
+    select {
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: #fdfdfd;
+      font-size: 15px;
+      transition: border-color .2s;
+    }
+    input:focus, select:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+    }
+    button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      color: white;
+      background: var(--primary);
+      cursor: pointer;
+      font-size: 16px;
+      transition: background .2s, transform .05s;
+    }
+    button:hover { background: var(--primary-hover); }
+    button:active { transform: translateY(1px); }
+  </style>
 </head>
 <body>
   <h1>Générateur de code-barres</h1>
 
-  <form method="post" action="qrcode">
+  <form method="post" action="/qrcode">
     <label>Code :
-      <input type="text" name="code" required>
-    </label><br>
+      <input type="text" name="code" placeholder="ex: P1234" required>
+    </label>
+
     <label>Libellé :
-      <input type="text" name="libelle" required>
-    </label><br>
+      <input type="text" name="libelle" placeholder="ex: Produit démo" required>
+    </label>
+
     <label>Type :
-      <select name="type">
+      <select name="type" disabled>
         <option value="datamatrix" selected>DataMatrix</option>
       </select>
-    </label><br><br>
-    <button type="submit">Générer</button>
-  </form>
+    </label>
 
-  <p>Test GET servlet : <a href="qrcode">/qrcode</a></p>
+    <button type="submit">🔍 Générer le code-barres</button>
+  </form>
 </body>
 </html>
