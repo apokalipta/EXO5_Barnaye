@@ -84,7 +84,7 @@
 <body>
   <h1>Générateur de code-barres</h1>
 
-  <form method="post" action="/qrcode">
+  <form method="post" action="qrcode">
     <label>Code :
       <input type="text" name="code" placeholder="ex: P1234" required>
     </label>
@@ -94,10 +94,10 @@
     </label>
 
     <label>Type :
-      <select name="type" disabled>
-        <option value="datamatrix" selected>DataMatrix</option>
-      </select>
-    </label>
+	    <select name="type">
+	      <option value="datamatrix" selected>DataMatrix</option>
+	    </select>
+  	</label>
 
     <button type="submit">🔍 Générer le code-barres</button>
   </form>

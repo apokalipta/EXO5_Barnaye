@@ -14,10 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.krysalis.barcode4j.impl.datamatrix.DataMatrixBean;
 import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
 
-@WebServlet("/qrcode")
+@WebServlet(urlPatterns = {"/qrcode", "/qrcode/"})
 public class QRCodeServlet extends HttpServlet {
 
-    @Override
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         resp.setContentType("text/plain; charset=UTF-8");
